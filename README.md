@@ -8,7 +8,7 @@
 
 Passo-a-passo:
 
-<img src="/desafio_web_wcaquino/src/main/resources/utils/desafio.png" alt="Imagem do desafio" title="Imagem do desafio">
+<img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/desafio.PNG" alt="Imagem do desafio" title="Imagem do desafio">
 
 
 ### Ajustes e melhorias
