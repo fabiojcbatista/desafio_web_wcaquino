@@ -24,10 +24,10 @@ public class GenericValidation {
         try{
             waits.loadElement(genericPage.getHomeLink());
             String label = genericPage.getHomeLink().getText();
-            Assertions.assertNotEquals(label, "Seu Barriga");
+            Assertions.assertEquals(label, "Seu Barriga");
             Report.log(Status.PASS, " Acessou a pagina Home com sucesso", Screenshot.capture(driver));
         }catch (Exception e){
-            Report.log(Status.FAIL, e.getMessage(), Screenshot.capture(driver));
+            Report.log(Status.FAIL, "Não foi possível acessar a pagina Home com sucesso".concat(e.getMessage()), Screenshot.capture(driver));
         }
     }
 

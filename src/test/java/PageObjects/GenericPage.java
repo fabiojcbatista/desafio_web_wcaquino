@@ -19,7 +19,8 @@ public class GenericPage {
     }
 
     public WebElement getTable(){
-        return waits.visibilityOfElement(By.id("tabelaSaldo"));
+        return driver.findElement(By.xpath("//div[@class='container']/table[@id='tabelaSaldo']/thead/tr/th"));
+        //return waits.visibilityOfElement(By.id("tabelaSaldo"));
     }
 }
 

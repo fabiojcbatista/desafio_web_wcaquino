@@ -5,16 +5,20 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class HomePage {
+public class NewUserPage {
     private WebDriver driver;
     private Waits waits;
 
-    public HomePage(WebDriver driver){
+    public NewUserPage(WebDriver driver){
         this.driver = driver;
         waits= new Waits(this.driver);
     }
 
     public WebElement getUserNameTextField(){
+        return driver.findElement(By.id("nome"));
+    }
+
+    public WebElement getUserEmailTextField(){
         return driver.findElement(By.id("email"));
     }
 
@@ -22,10 +26,7 @@ public class HomePage {
         return driver.findElement(By.id("senha"));
     }
 
-    public WebElement getLoginButton(){
+    public WebElement getAddUserButton(){
         return driver.findElement(By.xpath("//*[@type='submit']"));
-    }
-    public WebElement getNewUserLink(){
-        return driver.findElement(By.xpath("//*[contains(@href,'/cadastro')]"));
     }
 }
