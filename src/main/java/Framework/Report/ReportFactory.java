@@ -15,12 +15,12 @@ public class ReportFactory {
             "Report_" + DateTime.getDateTimeFormatReport();
 
     public static ExtentSparkReporter extentSparkReporter;
-    public static ExtentReports  extentReports;
+    public static ExtentReports extentReports;
 
-    public static void configReportExtent(){
+    public static void configReportExtent() {
         CreateFolder.createFolderReport(PATH_REPORT);
 
-        extentSparkReporter = new ExtentSparkReporter(PATH_REPORT +File.separator + "Report_"+ DateTime.getDateTimeFormatReport() + ".html");
+        extentSparkReporter = new ExtentSparkReporter(PATH_REPORT + File.separator + "Report_" + DateTime.getDateTimeFormatReport() + ".html");
         extentSparkReporter.config().setDocumentTitle("Relatório de Execução Automação Capacitação");
         extentSparkReporter.config().setReportName("Relatório de Execução de Testes");
         extentSparkReporter.config().setTheme(Theme.STANDARD);
@@ -33,8 +33,8 @@ public class ReportFactory {
         extentReports.attachReporter(extentSparkReporter);
     }
 
-    protected synchronized static ExtentReports getInstance(){
-        if (extentReports == null){
+    protected synchronized static ExtentReports getInstance() {
+        if (extentReports == null) {
             configReportExtent();
         }
         return extentReports;

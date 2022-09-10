@@ -14,7 +14,7 @@ public class TestBase extends DriverManager {
     private static WebDriver driver;
     private static FilesOperation filesOperation = new FilesOperation();
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         driver = getDriver(TypeBrowser.CHROME);
         return driver;
     }
@@ -26,7 +26,7 @@ public class TestBase extends DriverManager {
     }
 
     @AfterEach
-    public void finish(){
+    public void finish() {
         Report.close();
         quitDriver();
     }

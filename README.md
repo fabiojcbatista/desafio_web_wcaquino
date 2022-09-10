@@ -10,7 +10,6 @@ Passo-a-passo:
 
 <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/desafio.PNG" alt="Imagem do desafio" title="Imagem do desafio">
 
-
 ### Ajustes e melhorias
 
 - [x] Organizar a estrutura de código.
@@ -18,7 +17,26 @@ Passo-a-passo:
 - [ ] Criar Task padronizada.
 - [ ] Criar Tests Cases.
 - [ ] Criar Validation.
-- [ ] Criar Relatório de Testes.
+- [x] Criar Relatório de Testes.
+
+### Funcionalidades Atendidas
+
+- [X] Acessar o site.
+
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/acessar_site.PNG" alt="Imagem do acesso ao site" title="Imagem do acesso ao site">  
+
+- [X] Registrar um novo usuário.
+
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/registrar_usuario.PNG" alt="Imagem do registro do usuario" title="Imagem do registro do usuario">
+
+- [X] Acessar a plataforma.
+
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/acessar_plataforma.PNG" alt="Imagem do acesso à plataforma" title="Imagem do acesso à plataforma">
+
+- [ ] Criar contas de Receitas e Despesas.
+- [ ] Inserir movimentações.
+- [ ] Validar as movimentações inseridas.
+- [ ] Validar saldo conforme as movimentações criadas.
 
 ## 💻 Pré-requisitos
 
@@ -77,7 +95,9 @@ Para contribuir com desafio-web, siga estas etapas:
 4. Envie para o branch original: `git push origin <nome_do_projeto> / <local>`
 5. Crie a solicitação de pull.
 
-Como alternativa, consulte a documentação do GitHub em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request).
+Como alternativa, consulte a documentação do GitHub
+em [como criar uma solicitação pull](https://help.github.com/en/github/collaborating-with-issues-and-pull-requests/creating-a-pull-request)
+.
 
 ## 🤝 Colaboradores
 

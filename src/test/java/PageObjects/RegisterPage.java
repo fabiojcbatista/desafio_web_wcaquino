@@ -5,28 +5,32 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class NewUserPage {
+public class RegisterPage {
     private WebDriver driver;
     private Waits waits;
 
-    public NewUserPage(WebDriver driver){
+    public RegisterPage(WebDriver driver) {
         this.driver = driver;
-        waits= new Waits(this.driver);
+        waits = new Waits(this.driver);
     }
 
-    public WebElement getUserNameTextField(){
+    public WebElement getUserNameTextField() {
         return driver.findElement(By.id("nome"));
     }
 
-    public WebElement getUserEmailTextField(){
+    public WebElement getUserEmailTextField() {
         return driver.findElement(By.id("email"));
     }
 
-    public WebElement getPasswordTextField(){
+    public WebElement getPasswordTextField() {
         return driver.findElement(By.id("senha"));
     }
 
-    public WebElement getAddUserButton(){
+    public WebElement getAddUserButton() {
         return driver.findElement(By.xpath("//*[@type='submit']"));
+    }
+
+    public WebElement getSucessAlert() {
+        return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
     }
 }
