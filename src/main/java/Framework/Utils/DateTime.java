@@ -17,4 +17,10 @@ public class DateTime {
         LocalDateTime localDateTime = LocalDateTime.now();
         return dateTimeFormatter.format(localDateTime);
     }
+
+    public static String getDateTimeNowFormat() {
+        SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
+        Date now = new Date();
+        return dateFormat.format(now);
+    }
 }

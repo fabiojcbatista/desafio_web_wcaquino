@@ -3,41 +3,58 @@ package Validations;
 import Framework.Browser.Waits;
 import Framework.Report.Report;
 import Framework.Report.Screenshot;
-import PageObjects.RegisterPage;
+import PageObjects.ExtractPage;
 import PageObjects.TransactionPage;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-public class TransactionValidation {
+public class ExtractValidation {
     private WebDriver driver;
-    private TransactionPage transactionPage;
+    private ExtractPage extractPage;
     private Waits waits;
 
-    public TransactionValidation(WebDriver driver) {
+    public ExtractValidation(WebDriver driver) {
         this.driver = driver;
-        transactionPage = new TransactionPage(this.driver);
+        extractPage = new ExtractPage(this.driver);
         waits = new Waits(this.driver);
     }
 
-    public void validationTransactionPage() {
+    public void validationExtracPage() {
         try {
-            waits.loadElement(transactionPage.getTransationTypeSelect());
-            Assertions.assertTrue(transactionPage.getTransationTypeSelect().isDisplayed());
-            Report.log(Status.PASS, "Acessou a pagina de movimentações com sucesso", Screenshot.captureBase64(driver));
+            waits.loadElement(extractPage.getTable());
+            Assertions.assertTrue(extractPage.getTable().isDisplayed());
+            Report.log(Status.PASS, "Acessou a pagina de resumo mensal com sucesso", Screenshot.captureBase64(driver));
         } catch (Exception e) {
-            Report.log(Status.FAIL, "Falha ao acessar a pagina de movimentações - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
+            Report.log(Status.FAIL, "Falha ao acessar a pagina de resumo mensal - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
         }
     }
-
-    public void validationTransaction() {
+    public void validationExtract(String description, String paymentDate, String account, String value, String situation, String row ) {
         try {
-            waits.loadElement(transactionPage.getSucessAlert());
-            String label = transactionPage.getSucessAlert().getText();
-            Assertions.assertEquals(label, "Movimentação adicionada com sucesso!");
-            Report.log(Status.PASS, "Inseriu com sucesso", Screenshot.captureBase64(driver));
+            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"1"));
+            String labeldescription = extractPage.getRowAndColumnOfTableTextField(row,"1").getText();
+            Assertions.assertEquals(labeldescription, description);
+
+            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"2"));
+            String labelpaymentDate = extractPage.getRowAndColumnOfTableTextField(row,"2").getText();
+            Assertions.assertEquals(labelpaymentDate, paymentDate);
+
+            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"3"));
+            String labelaccount = extractPage.getRowAndColumnOfTableTextField(row,"3").getText();
+            Assertions.assertEquals(labelaccount, account);
+
+            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"4"));
+            String labelvalue = extractPage.getRowAndColumnOfTableTextField(row,"4").getText();
+            value = value.concat(".00").replace("-","");
+            Assertions.assertEquals(labelvalue, value);
+
+            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"5"));
+            String labelsituation = extractPage.getRowAndColumnOfTableTextField(row,"5").getText();
+            Assertions.assertEquals(labelsituation, situation);
+
+            Report.log(Status.PASS, "Movimentações validadas com sucesso", Screenshot.captureBase64(driver));
         } catch (Exception e) {
-            Report.log(Status.FAIL, "Falha ao inserir movimentação - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
+            Report.log(Status.FAIL, "Falha ao validar as movimentações - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
         }
     }
 }

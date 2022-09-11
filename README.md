@@ -13,9 +13,9 @@ Passo-a-passo:
 ### Ajustes e melhorias
 
 - [x] Organizar a estrutura de código.
-- [ ] Criar PageObject padronizada.
-- [ ] Criar Task padronizada.
-- [ ] Criar Tests Cases.
+- [x] Criar PageObject padronizada.
+- [x] Criar Task padronizada.
+- [x] Criar Tests Cases.
 - [ ] Criar Validation.
 - [x] Criar Relatório de Testes.
 
@@ -33,10 +33,21 @@ Passo-a-passo:
 
   <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/acessar_plataforma.PNG" alt="Imagem do acesso à plataforma" title="Imagem do acesso à plataforma">
 
-- [ ] Criar contas de Receitas e Despesas.
-- [ ] Inserir movimentações.
+- [x] Criar contas de Receitas e Despesas.
+
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/criar_conta_receita_despesa.PNG" alt="Imagem da criação da conta" title="Imagem da criação da conta">
+  
+- [x] Inserir movimentações.
+
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/incluir_movimentacao.PNG" alt="Imagem de inclusão de movimentações" title="Imagem de inclusão de movimentações">
+  
 - [ ] Validar as movimentações inseridas.
-- [ ] Validar saldo conforme as movimentações criadas.
+
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/validar_movimentacao.PNG" alt="Imagem da validação das movimentações" title="Imagem da validação das movimentações">
+  
+- [x] Validar saldo conforme as movimentações criadas.
+  
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/validar_saldo.PNG" alt="Imagem da validação de saldo" title="Imagem da validação de saldo">
 
 ## 💻 Pré-requisitos
 

@@ -1,4 +1,4 @@
-package Framework.Enum;
+package Enum;
 
 public enum ESituation {
     PAGO,

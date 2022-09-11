@@ -5,24 +5,24 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
-public class ExtractPage {
+public class BalancePage {
     private WebDriver driver;
     private Waits waits;
 
-    public ExtractPage(WebDriver driver) {
+    public BalancePage(WebDriver driver) {
         this.driver = driver;
         waits = new Waits(this.driver);
     }
 
     public WebElement getTable() {
-        return driver.findElement(By.id("tabelaExtrato"));
+        return driver.findElement(By.id("tabelaSaldo"));
     }
 
     public WebElement getRowAndColumnOfTableTextField(String row, String column) {
-        return driver.findElement(By.xpath("//*[@id='tabelaExtrato']/tbody/tr[".concat(row).concat("]/td[").concat(column).concat("]")));
+        return driver.findElement(By.xpath("//*[@id='tabelaSaldo']/tbody/tr[".concat(row).concat("]/td[").concat(column).concat("]")));
     }
 
-    public WebElement getExtractLink() {
-        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[4]/a"));
+    public WebElement getBalanceLink() {
+        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[1]/a"));
     }
 }

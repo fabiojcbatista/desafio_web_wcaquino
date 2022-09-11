@@ -1,6 +1,6 @@
-package Framework.Enum;
+package Enum;
 
-public enum ESituation {
-    PAGO,
-    PENDENTE;
+public enum ETypeTransation {
+    RECEITA,
+    DESPESA;
 }

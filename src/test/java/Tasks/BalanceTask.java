@@ -1,27 +1,25 @@
 package Tasks;
 
-import Enum.ESituation;
-import Enum.ETypeTransation;
+import PageObjects.BalancePage;
 import PageObjects.ExtractPage;
-import PageObjects.TransactionPage;
+import Validations.BalanceValidation;
 import Validations.ExtractValidation;
-import Validations.TransactionValidation;
 import org.openqa.selenium.WebDriver;
 
-public class ExtractTask {
+public class BalanceTask {
     private WebDriver driver;
-    private ExtractPage extractPage;
-    private ExtractValidation extractValidation;
+    private BalancePage balancePage;
+    private BalanceValidation balanceValidation;
 
-    public ExtractTask(WebDriver driver) {
+    public BalanceTask(WebDriver driver) {
         this.driver = driver;
-        extractPage = new ExtractPage(this.driver);
-        extractValidation = new ExtractValidation(this.driver);
+        balancePage = new BalancePage(this.driver);
+        balanceValidation = new BalanceValidation(this.driver);
     }
 
-    public void verificarMovimentacaoParametrizado(String paymentDate, String description, String value, String account, String row, String situation) {
-        extractPage.getExtractLink().click();
-        extractValidation.validationExtracPage();
-        extractValidation.validationExtract(description,paymentDate,account,value,situation,row);
+    public void verificarSaldoParametrizado(String saldoConta1,String saldoConta2) {
+        balancePage.getBalanceLink().click();
+        balanceValidation.validationBalancePage();
+        balanceValidation.validationBalance(saldoConta1,saldoConta2);
     }
 }

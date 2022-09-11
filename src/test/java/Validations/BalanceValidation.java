@@ -3,58 +3,47 @@ package Validations;
 import Framework.Browser.Waits;
 import Framework.Report.Report;
 import Framework.Report.Screenshot;
+import PageObjects.BalancePage;
 import PageObjects.ExtractPage;
-import PageObjects.TransactionPage;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
 import org.openqa.selenium.WebDriver;
 
-public class ExtractValidation {
+public class BalanceValidation {
     private WebDriver driver;
-    private ExtractPage extractPage;
+    private BalancePage balancePage;
     private Waits waits;
 
-    public ExtractValidation(WebDriver driver) {
+    public BalanceValidation(WebDriver driver) {
         this.driver = driver;
-        extractPage = new ExtractPage(this.driver);
+        balancePage = new BalancePage(this.driver);
         waits = new Waits(this.driver);
     }
 
-    public void validationExtracPage() {
+    public void validationBalancePage() {
         try {
-            waits.loadElement(extractPage.getTable());
-            Assertions.assertTrue(extractPage.getTable().isDisplayed());
-            Report.log(Status.PASS, "Acessou a pagina de resumo mensal com sucesso", Screenshot.captureBase64(driver));
+            waits.loadElement(balancePage.getTable());
+            Assertions.assertTrue(balancePage.getTable().isDisplayed());
+            Report.log(Status.PASS, "Acessou a pagina Home com sucesso", Screenshot.captureBase64(driver));
         } catch (Exception e) {
-            Report.log(Status.FAIL, "Falha ao acessar a pagina de resumo mensal - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
+            Report.log(Status.FAIL, "Falha ao acessar a pagina Home- ".concat(e.getMessage()), Screenshot.captureBase64(driver));
         }
     }
-    public void validationExtract(String description, String paymentDate, String account, String value, String situation, String row ) {
+    public void validationBalance(String saldoConta1,String saldoConta2) {
         try {
-            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"1"));
-            String labeldescription = extractPage.getRowAndColumnOfTableTextField(row,"1").getText();
-            Assertions.assertEquals(labeldescription, description);
+            waits.loadElement(balancePage.getRowAndColumnOfTableTextField("1","2"));
+            String labelvalue = balancePage.getRowAndColumnOfTableTextField("1","2").getText();
+            saldoConta1 = saldoConta1.concat(".00").replace("-","");
+            Assertions.assertEquals(labelvalue, saldoConta1);
 
-            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"2"));
-            String labelpaymentDate = extractPage.getRowAndColumnOfTableTextField(row,"2").getText();
-            Assertions.assertEquals(labelpaymentDate, paymentDate);
+            waits.loadElement(balancePage.getRowAndColumnOfTableTextField("2","2"));
+            String labelvalue2 = balancePage.getRowAndColumnOfTableTextField("2","2").getText();
+            saldoConta2 = "-".concat(saldoConta2.concat(".00"));
+            Assertions.assertEquals(labelvalue2, saldoConta2);
 
-            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"3"));
-            String labelaccount = extractPage.getRowAndColumnOfTableTextField(row,"3").getText();
-            Assertions.assertEquals(labelaccount, account);
-
-            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"4"));
-            String labelvalue = extractPage.getRowAndColumnOfTableTextField(row,"4").getText();
-            value = value.concat(".00").replace("-","");
-            Assertions.assertEquals(labelvalue, value);
-
-            waits.loadElement(extractPage.getRowAndColumnOfTableTextField(row,"5"));
-            String labelsituation = extractPage.getRowAndColumnOfTableTextField(row,"5").getText();
-            Assertions.assertEquals(labelsituation, situation);
-
-            Report.log(Status.PASS, "Movimentações validadas com sucesso", Screenshot.captureBase64(driver));
+            Report.log(Status.PASS, "Saldo validado com sucesso", Screenshot.captureBase64(driver));
         } catch (Exception e) {
-            Report.log(Status.FAIL, "Falha ao validar as movimentações - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
+            Report.log(Status.FAIL, "Falha ao validar o saldo - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
         }
     }
 }

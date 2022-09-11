@@ -26,4 +26,8 @@ public class GenericPage {
     public WebElement getSucessAlert() {
         return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
     }
+
+    public WebElement getAddAccountLink() {
+        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[2]/ul/li[1]/a[@href='/addConta']"));
+    }
 }
