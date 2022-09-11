@@ -1,22 +1,17 @@
 package Tasks;
 
 import PageObjects.RegisterPage;
-import Validations.GenericValidation;
-import Validations.LoginValidation;
 import Validations.RegisterValidation;
 import org.openqa.selenium.WebDriver;
 
 public class RegisterTask {
     private WebDriver driver;
     private RegisterPage registerPage;
-    private LoginValidation loginValidation;
     private RegisterValidation registerValidation;
-    private GenericValidation genericValidation;
 
     public RegisterTask(WebDriver driver) {
         this.driver = driver;
         registerPage = new RegisterPage(this.driver);
-        loginValidation = new LoginValidation(this.driver);
         registerValidation = new RegisterValidation(this.driver);
     }
 

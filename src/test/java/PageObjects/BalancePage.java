@@ -14,15 +14,15 @@ public class BalancePage {
         waits = new Waits(this.driver);
     }
 
-    public WebElement getTable() {
-        return driver.findElement(By.id("tabelaSaldo"));
+    public WebElement getBalanceLink() {
+        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[1]/a"));
     }
 
     public WebElement getRowAndColumnOfTableTextField(String row, String column) {
         return driver.findElement(By.xpath("//*[@id='tabelaSaldo']/tbody/tr[".concat(row).concat("]/td[").concat(column).concat("]")));
     }
 
-    public WebElement getBalanceLink() {
-        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[1]/a"));
+    public WebElement getTable() {
+        return driver.findElement(By.id("tabelaSaldo"));
     }
 }

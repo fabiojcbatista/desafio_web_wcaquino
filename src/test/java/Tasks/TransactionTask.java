@@ -17,10 +17,13 @@ public class TransactionTask {
         transactionValidation = new TransactionValidation(this.driver);
     }
 
-    public void criarMovimentacaoParametrizado(String paymentDate, String transactionDate, String description, String interested, String value, String account, ETypeTransation typeTransaction, ESituation situation) {
+    public void acessarTransactionPage() {
         transactionPage.getTransactionLink().click();
         transactionValidation.validationTransactionPage();
+    }
 
+    public void criarMovimentacaoParametrizado(String paymentDate, String transactionDate, String description, String interested, String value, String account, ETypeTransation typeTransaction, ESituation situation) {
+        transactionPage.getTransactionLink().click();
         transactionPage.getTransationTypeSelect().click();
         if (ETypeTransation.RECEITA.equals(typeTransaction)) {
             transactionPage.getRevenueTransationTypeSelect().click();

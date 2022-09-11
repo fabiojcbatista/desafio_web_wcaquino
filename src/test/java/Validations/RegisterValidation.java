@@ -19,13 +19,15 @@ public class RegisterValidation {
         waits = new Waits(this.driver);
     }
 
-    public void validationRegisterPage() {
+    public void validationPlataformAccess(String user) {
         try {
-            waits.loadElement(registerPage.getUserNameTextField());
-            Assertions.assertTrue(registerPage.getUserNameTextField().isDisplayed());
-            Report.log(Status.PASS, "Acessou a pagina de registro com sucesso", Screenshot.captureBase64(driver));
+            String Expectedlabel = "Bem vindo, ".concat(user).concat("!");
+            waits.loadElement(registerPage.getSucessAlert());
+            String label = registerPage.getSucessAlert().getText();
+            Assertions.assertEquals(label, Expectedlabel);
+            Report.log(Status.PASS, "Acessou a plataforma com sucesso", Screenshot.captureBase64(driver));
         } catch (Exception e) {
-            Report.log(Status.FAIL, "Falha ao acessar a pagina de registro - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
+            Report.log(Status.FAIL, "Falha ao registrar novo usuário - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
         }
     }
 
@@ -40,15 +42,13 @@ public class RegisterValidation {
         }
     }
 
-    public void validationPlataformAccess(String user) {
+    public void validationRegisterPage() {
         try {
-            String Expectedlabel = "Bem vindo, ".concat(user).concat("!");
-            waits.loadElement(registerPage.getSucessAlert());
-            String label = registerPage.getSucessAlert().getText();
-            Assertions.assertEquals(label, Expectedlabel);
-            Report.log(Status.PASS, "Acessou a plataforma com sucesso", Screenshot.captureBase64(driver));
+            waits.loadElement(registerPage.getUserNameTextField());
+            Assertions.assertTrue(registerPage.getUserNameTextField().isDisplayed());
+            Report.log(Status.PASS, "Acessou a pagina de registro com sucesso", Screenshot.captureBase64(driver));
         } catch (Exception e) {
-            Report.log(Status.FAIL, "Falha ao registrar novo usuário - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
+            Report.log(Status.FAIL, "Falha ao acessar a pagina de registro - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
         }
     }
 }

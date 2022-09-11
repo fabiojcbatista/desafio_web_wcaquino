@@ -18,16 +18,16 @@ public class AccountPage {
         return driver.findElement(By.id("nome"));
     }
 
-    public WebElement getSaveButton() {
-        return driver.findElement(By.xpath("/html/body/div[2]/form/div[2]/button"));
+    public WebElement getAccountLink() {
+        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[2]/a[@href='/']"));
     }
 
     public WebElement getAddAccountLink() {
         return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[2]/ul/li[1]/a[@href='/addConta']"));
     }
 
-    public WebElement getAccountLink() {
-        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[2]/a[@href='/']"));
+    public WebElement getSaveButton() {
+        return driver.findElement(By.xpath("/html/body/div[2]/form/div[2]/button"));
     }
 
     public WebElement getSucessAlert() {

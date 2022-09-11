@@ -14,23 +14,23 @@ public class RegisterPage {
         waits = new Waits(this.driver);
     }
 
-    public WebElement getUserNameTextField() {
-        return driver.findElement(By.id("nome"));
-    }
-
-    public WebElement getUserEmailTextField() {
-        return driver.findElement(By.id("email"));
+    public WebElement getAddUserButton() {
+        return driver.findElement(By.xpath("//*[@type='submit']"));
     }
 
     public WebElement getPasswordTextField() {
         return driver.findElement(By.id("senha"));
     }
 
-    public WebElement getAddUserButton() {
-        return driver.findElement(By.xpath("//*[@type='submit']"));
-    }
-
     public WebElement getSucessAlert() {
         return driver.findElement(By.xpath("//div[@class='alert alert-success']"));
+    }
+
+    public WebElement getUserEmailTextField() {
+        return driver.findElement(By.id("email"));
+    }
+
+    public WebElement getUserNameTextField() {
+        return driver.findElement(By.id("nome"));
     }
 }

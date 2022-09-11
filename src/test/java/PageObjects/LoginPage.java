@@ -14,19 +14,11 @@ public class LoginPage {
         waits = new Waits(this.driver);
     }
 
-    public WebElement getUserNameTextField() {
-        return driver.findElement(By.id("email"));
-    }
-
-    public WebElement getPasswordTextField() {
-        return driver.findElement(By.id("senha"));
-    }
-
-    public WebElement getLoginButton() {
-        return driver.findElement(By.xpath("//*[@type='submit']"));
-    }
-
     public WebElement getNewUserLink() {
         return driver.findElement(By.xpath("//*[contains(@href,'/cadastro')]"));
+    }
+
+    public WebElement getUserNameTextField() {
+        return driver.findElement(By.id("email"));
     }
 }

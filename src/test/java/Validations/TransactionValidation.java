@@ -3,7 +3,6 @@ package Validations;
 import Framework.Browser.Waits;
 import Framework.Report.Report;
 import Framework.Report.Screenshot;
-import PageObjects.RegisterPage;
 import PageObjects.TransactionPage;
 import com.aventstack.extentreports.Status;
 import org.junit.jupiter.api.Assertions;
@@ -20,16 +19,6 @@ public class TransactionValidation {
         waits = new Waits(this.driver);
     }
 
-    public void validationTransactionPage() {
-        try {
-            waits.loadElement(transactionPage.getTransationTypeSelect());
-            Assertions.assertTrue(transactionPage.getTransationTypeSelect().isDisplayed());
-            Report.log(Status.PASS, "Acessou a pagina de movimentações com sucesso", Screenshot.captureBase64(driver));
-        } catch (Exception e) {
-            Report.log(Status.FAIL, "Falha ao acessar a pagina de movimentações - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
-        }
-    }
-
     public void validationTransaction() {
         try {
             waits.loadElement(transactionPage.getSucessAlert());
@@ -38,6 +27,16 @@ public class TransactionValidation {
             Report.log(Status.PASS, "Inseriu com sucesso", Screenshot.captureBase64(driver));
         } catch (Exception e) {
             Report.log(Status.FAIL, "Falha ao inserir movimentação - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
+        }
+    }
+
+    public void validationTransactionPage() {
+        try {
+            waits.loadElement(transactionPage.getTransationTypeSelect());
+            Assertions.assertTrue(transactionPage.getTransationTypeSelect().isDisplayed());
+            Report.log(Status.PASS, "Acessou a pagina de movimentações com sucesso", Screenshot.captureBase64(driver));
+        } catch (Exception e) {
+            Report.log(Status.FAIL, "Falha ao acessar a pagina de movimentações - ".concat(e.getMessage()), Screenshot.captureBase64(driver));
         }
     }
 }

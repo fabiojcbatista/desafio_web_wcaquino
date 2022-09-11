@@ -1,11 +1,7 @@
 package Tasks;
 
-import Enum.ESituation;
-import Enum.ETypeTransation;
 import PageObjects.ExtractPage;
-import PageObjects.TransactionPage;
 import Validations.ExtractValidation;
-import Validations.TransactionValidation;
 import org.openqa.selenium.WebDriver;
 
 public class ExtractTask {
@@ -19,9 +15,12 @@ public class ExtractTask {
         extractValidation = new ExtractValidation(this.driver);
     }
 
-    public void verificarMovimentacaoParametrizado(String paymentDate, String description, String value, String account, String row, String situation) {
+    public void acessarMovimentacao() {
         extractPage.getExtractLink().click();
         extractValidation.validationExtracPage();
+    }
+
+    public void verificarMovimentacaoParametrizado(String paymentDate, String description, String value, String account, String row, String situation) {
         extractValidation.validationExtract(description,paymentDate,account,value,situation,row);
     }
 }

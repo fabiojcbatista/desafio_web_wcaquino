@@ -14,15 +14,19 @@ public class ExtractPage {
         waits = new Waits(this.driver);
     }
 
-    public WebElement getTable() {
-        return driver.findElement(By.id("tabelaExtrato"));
+    public WebElement getExtractLink() {
+        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[4]/a"));
     }
 
     public WebElement getRowAndColumnOfTableTextField(String row, String column) {
-        return driver.findElement(By.xpath("//*[@id='tabelaExtrato']/tbody/tr[".concat(row).concat("]/td[").concat(column).concat("]")));
+        if (column.equals("5")) {
+            return driver.findElement(By.xpath("//*[@id='tabelaExtrato']/tbody/tr[".concat(row).concat("]/td[").concat(column).concat("]/span")));
+        } else {
+            return driver.findElement(By.xpath("//*[@id='tabelaExtrato']/tbody/tr[".concat(row).concat("]/td[").concat(column).concat("]")));
+        }
     }
 
-    public WebElement getExtractLink() {
-        return driver.findElement(By.xpath("//*[@id='navbar']/ul/li[4]/a"));
+    public WebElement getTable() {
+        return driver.findElement(By.id("tabelaExtrato"));
     }
 }
