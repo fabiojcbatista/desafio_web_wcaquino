@@ -39,7 +39,7 @@ Passo-a-passo:
   
 - [x] Inserir movimentações.
 
-  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/incluir_movimentacao.PNG" alt="Imagem de inclusão de movimentações" title="Imagem de inclusão de movimentações">
+  <img src="https://github.com/fabiojcbatista/desafio_web_wcaquino/blob/main/src/main/resources/Utils/inserir_movimentacao.PNG" alt="Imagem de inclusão de movimentações" title="Imagem de inclusão de movimentações">
   
 - [ ] Validar as movimentações inseridas.
 
